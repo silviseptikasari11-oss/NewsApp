@@ -1,24 +1,30 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
-const { GenerateSW } = require('workbox-webpack-plugin'); // ✅ Tambahkan ini
+const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'development',
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
+      watch: false,
     },
     port: 9000,
     hot: false,
-    liveReload: true,
+    liveReload: false,
     open: true,
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+      },
+    },
   },
   plugins: [
-    new GenerateSW({
-      swDest: 'sw.bundle.js',  // hasil file SW
-      clientsClaim: true,
-      skipWaiting: true,
+    new InjectManifest({
+      swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
+      swDest: 'sw.bundle.js',
     }),
   ],
 });

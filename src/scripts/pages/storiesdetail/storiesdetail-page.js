@@ -91,7 +91,6 @@ export default class StoriesDetailPage {
       generateSaveReportButtonTemplate();
 
     document.getElementById('report-detail-save').addEventListener('click', async () => {
-      // alert('Fitur simpan laporan akan segera hadir!');
       await this.#presenter.saveReport();
       await this.#presenter.showSaveButton();
     });
@@ -102,7 +101,6 @@ export default class StoriesDetailPage {
       generateRemoveReportButtonTemplate();
 
     document.getElementById('report-detail-remove').addEventListener('click', async () => {
-      // alert('Fitur simpan laporan akan segera hadir!');
       await this.#presenter.removeReport();
       await this.#presenter.showSaveButton();
     });

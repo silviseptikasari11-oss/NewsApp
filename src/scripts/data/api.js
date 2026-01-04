@@ -60,10 +60,15 @@ export async function getAllStories() {
   const fetchResponse = await fetch(ENDPOINTS.GETALLSTORIES, {
     method: 'GET',
     headers: {
-      'content-type': 'application/json',
       'Authorization': `Bearer ${token}`,
     },
   });
+
+  if (!fetchResponse.ok) {
+     const text = await fetchResponse.text();
+     return { error: true, message: `Error ${fetchResponse.status}: ${text.substring(0, 100)}` };
+  }
+
   const json = await fetchResponse.json();
 
   return {
@@ -77,10 +82,15 @@ export async function getDetailReportById(id) {
 
   const fetchResponse = await fetch(ENDPOINTS.DETAILSTORY(id), {
     headers: {
-      'content-type': 'application/json',
       'Authorization': `Bearer ${token}`,
     },
   });
+
+  if (!fetchResponse.ok) {
+    const text = await fetchResponse.text();
+    return { error: true, message: `Error ${fetchResponse.status}: ${text.substring(0, 100)}` };
+ }
+
   const json = await fetchResponse.json();
 
   return {

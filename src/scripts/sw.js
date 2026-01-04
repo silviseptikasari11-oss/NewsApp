@@ -1,4 +1,4 @@
-import { precacheAndRoute } from 'workbox-precaching';
+import { precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching';
 import { registerRoute, setDefaultHandler, setCatchHandler } from 'workbox-routing';
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { NetworkFirst, CacheFirst, StaleWhileRevalidate } from 'workbox-strategies';
@@ -6,6 +6,15 @@ import { base_url } from '../config';
 
 // DO PRECACHING
 precacheAndRoute(self.__WB_MANIFEST);
+cleanupOutdatedCaches();
+
+// Offline Fallback
+setCatchHandler(async ({ event }) => {
+  if (event.request.destination === 'document') {
+    return workbox.precaching.matchPrecache('index.html');
+  }
+  return Response.error();
+});
 
 // Runtime caching
 registerRoute(
@@ -54,6 +63,11 @@ registerRoute(
   },
   new StaleWhileRevalidate({
     cacheName: 'newsapp-api-images',
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+    ],
   })
 );
 

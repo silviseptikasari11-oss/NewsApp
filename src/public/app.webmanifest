@@ -1,6 +1,6 @@
 {
-  "id": "/#/",
-  "start_url": "/#/",
+  "id": "newsapp",
+  "start_url": "./index.html",
   "scope": "/",
   "name": "NewsApp",
   "short_name": "NewsApp",
