@@ -1,7 +1,7 @@
 {
   "id": "newsapp",
   "start_url": "./index.html",
-  "scope": "/",
+  "scope": "./",
   "name": "NewsApp",
   "short_name": "NewsApp",
   "description": "Aplikasi pelaporan berita kejadian yang terjadi di bumi memungkinkan semua makhluk hidup melihatnya. Dengan aplikasi ini, komunikasi antara makhluk hidup menjadi efisien.",
@@ -10,19 +10,19 @@
   "theme_color": "#182029",
   "icons": [
     {
-      "src": "/images/icon.png",
+      "src": "./images/icon.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any"
     },
     {
-      "src": "/images/add-x512.png",
+      "src": "./images/add-x512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
     },
     {
-      "src": "/images/bookmark-x512.png",
+      "src": "./images/bookmark-x512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
@@ -30,13 +30,13 @@
   ],
   "screenshots": [
     {
-      "src": "/screenshots/desktop-view.png",
+      "src": "./screenshots/desktop-view.png",
       "sizes": "1902x905",
       "type": "image/png",
       "form_factor": "wide"
     },
     {
-      "src": "/screenshots/mobile-view.png",
+      "src": "./screenshots/mobile-view.png",
       "sizes": "401x798",
       "type": "image/png"
     }
@@ -46,10 +46,10 @@
       "name": "Laporan Baru",
       "short_name": "Baru",
       "description": "Membuat Laporan Berita Baru",
-      "url": "/?source=pwa#/new",
+      "url": "./?source=pwa#/new",
       "icons": [
         {
-          "src": "/images/add-x512.png",
+          "src": "./images/add-x512.png",
           "type": "image/png",
           "sizes": "512x512"
         }
@@ -59,10 +59,10 @@
       "name": "Laporan Tersimpan",
       "short_name": "Tersimpan",
       "description": "Lihat daftar laporan tersimpan",
-      "url": "/?source=pwa#/bookmark",
+      "url": "./?source=pwa#/bookmark",
       "icons": [
         {
-          "src": "/images/bookmark-x512.png",
+          "src": "./images/bookmark-x512.png",
           "type": "image/png",
           "sizes": "512x512"
         }

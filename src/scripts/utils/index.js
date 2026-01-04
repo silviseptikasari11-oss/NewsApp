@@ -92,7 +92,7 @@ export async function registerServiceWorker() {
   }
 
   try {
-    const registration = await navigator.serviceWorker.register('/sw.bundle.js', { scope: '/', updateViaCache: 'none', type: 'module' });
+    const registration = await navigator.serviceWorker.register('./sw.bundle.js', { scope: './', updateViaCache: 'none', type: 'module' });
     console.log('Service worker telah terpasang:', registration);
 
     // tunggu service worker aktif
